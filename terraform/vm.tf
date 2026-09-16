@@ -40,6 +40,6 @@ resource "azurerm_linux_virtual_machine" "app" {
     version   = "latest"
   }
   identity {
-  type = "SystemAssigned"
-}
+    type = "SystemAssigned"
+  }
 }

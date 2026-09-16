@@ -11,7 +11,7 @@ terraform {
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
     use_azuread_auth     = true
-}
+  }
 }
 
 provider "azurerm" {
@@ -22,5 +22,3 @@ resource "azurerm_resource_group" "main" {
   name     = "rg-azure-lab"
   location = "Japan East"
 }
-
-

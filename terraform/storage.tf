@@ -1,9 +1,9 @@
 resource "azurerm_storage_account" "lab" {
-  name                     = "kawamuralab20260916"
-  resource_group_name      = azurerm_resource_group.main.name
-  location                 = azurerm_resource_group.main.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+  name                          = "kawamuralab20260916"
+  resource_group_name           = azurerm_resource_group.main.name
+  location                      = azurerm_resource_group.main.location
+  account_tier                  = "Standard"
+  account_replication_type      = "LRS"
   public_network_access_enabled = false
 }
 resource "azurerm_role_assignment" "vm_storage_blob_reader" {
@@ -25,8 +25,8 @@ resource "azurerm_private_endpoint" "storage_blob" {
     is_manual_connection           = false
   }
 
-    private_dns_zone_group {
-    name                 = "storage-blob-dns"
+  private_dns_zone_group {
+    name = "storage-blob-dns"
     private_dns_zone_ids = [
       azurerm_private_dns_zone.storage_blob.id
     ]
