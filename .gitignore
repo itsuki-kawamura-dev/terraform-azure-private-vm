@@ -1,0 +1,19 @@
+# Terraform working directory
+.terraform/
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+
+# Terraform variable files
+*.tfvars
+
+# Terraform plan files
+*.tfplan
+
+# Local test scripts
+test-storage.sh
+check-dns.sh
+
+# Temporary OIDC configuration
+federated-credential.json
