@@ -1,7 +1,7 @@
 resource "azurerm_storage_account" "lab" {
   name                          = "kawamuralab20260916"
-  resource_group_name           = azurerm_resource_group.main.name
-  location                      = azurerm_resource_group.main.location
+  resource_group_name           = data.azurerm_resource_group.main.name
+  location                      = data.azurerm_resource_group.main.location
   account_tier                  = "Standard"
   account_replication_type      = "LRS"
   public_network_access_enabled = false
@@ -14,8 +14,8 @@ resource "azurerm_role_assignment" "vm_storage_blob_reader" {
 
 resource "azurerm_private_endpoint" "storage_blob" {
   name                = "pe-storage-blob"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
+  location            = data.azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
   subnet_id           = azurerm_subnet.main.id
 
   private_service_connection {
@@ -34,5 +34,5 @@ resource "azurerm_private_endpoint" "storage_blob" {
 }
 resource "azurerm_private_dns_zone" "storage_blob" {
   name                = "privatelink.blob.core.windows.net"
-  resource_group_name = azurerm_resource_group.main.name
+  resource_group_name = data.azurerm_resource_group.main.name
 }

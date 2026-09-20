@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "app" {
   name                = "nic-app"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
+  location            = data.azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
 
   ip_configuration {
     name                          = "internal"
@@ -12,8 +12,8 @@ resource "azurerm_network_interface" "app" {
 
 resource "azurerm_linux_virtual_machine" "app" {
   name                = "vm-app"
-  resource_group_name = azurerm_resource_group.main.name
-  location            = azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
+  location            = data.azurerm_resource_group.main.location
   size                = "Standard_F1als_v7"
 
   admin_username                  = "azureuser"
