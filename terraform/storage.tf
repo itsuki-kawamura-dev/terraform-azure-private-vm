@@ -36,3 +36,9 @@ resource "azurerm_private_dns_zone" "storage_blob" {
   name                = "privatelink.blob.core.windows.net"
   resource_group_name = data.azurerm_resource_group.main.name
 }
+
+resource "azurerm_storage_container" "test" {
+  name                  = "test"
+  storage_account_id    = azurerm_storage_account.lab.id
+  container_access_type = "private"
+}
