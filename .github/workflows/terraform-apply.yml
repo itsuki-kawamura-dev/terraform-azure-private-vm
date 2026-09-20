@@ -1,6 +1,14 @@
-name: Terraform Plan
+name: Terraform Plan/Apply
 
 on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
   workflow_dispatch:
 
 permissions:
@@ -39,9 +47,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -input=false
 
       - name: Terraform Apply
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' ||
-            github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve -input=false
