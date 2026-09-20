@@ -18,7 +18,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "main" {
+data "azurerm_resource_group" "main" {
   name     = "rg-azure-lab"
   location = "Japan East"
 }
