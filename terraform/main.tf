@@ -19,5 +19,5 @@ provider "azurerm" {
 }
 
 data "azurerm_resource_group" "main" {
-  name     = "rg-azure-lab"
+  name = "rg-azure-lab"
 }
