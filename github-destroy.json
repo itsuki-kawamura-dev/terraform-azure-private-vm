@@ -1,0 +1,9 @@
+{
+  "name": "github-destroy",
+  "issuer": "https://token.actions.githubusercontent.com",
+  "subject": "repo:itsuki-kawamura-dev@319918486/terraform-azure-private-vm@1373689960:environment:destroy",
+  "description": "GitHub Actions OIDC for destroy environment",
+  "audiences": [
+    "api://AzureADTokenExchange"
+  ]
+}
