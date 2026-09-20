@@ -23,10 +23,10 @@ resource "azurerm_linux_virtual_machine" "app" {
     azurerm_network_interface.app.id
   ]
 
-  admin_ssh_key {
-    username   = "azureuser"
-    public_key = file("~/.ssh/id_ed25519.pub")
-  }
+admin_ssh_key {
+  username   = "azureuser"
+  public_key = file("${path.module}/keys/dummy.pub")
+}
 
   os_disk {
     caching              = "ReadWrite"
